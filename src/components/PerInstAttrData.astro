@@ -1,0 +1,16 @@
+---
+const { color = 'black', underline = 'underline' } = Astro.props;
+const hostStyles = `--color: ${color}; --text-decoration: ${underline};`;
+---
+
+<div class="per-inst-attr-data" style={hostStyles}>
+  <slot />
+</div>
+
+<style>
+  .per-inst-attr-data {
+    color: var(--color);
+    text-decoration: var(--text-decoration);
+    transition: background-color 0.3s;
+  }
+</style>

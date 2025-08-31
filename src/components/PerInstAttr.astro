@@ -1,0 +1,14 @@
+---
+const { color = 'black', underline = 'underline' } = Astro.props;
+---
+
+<div class="per-inst-attr">
+  <slot />
+</div>
+
+<style define:vars={{ color, textDecoration: underline }}>
+  .per-inst-attr {
+    color: var(--color);
+    text-decoration: var(--textDecoration);
+  }
+</style>

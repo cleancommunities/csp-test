@@ -1,0 +1,22 @@
+---
+const { color = 'black', underline = 'underline' } = Astro.props;
+---
+
+<div class="data-attr-cssom" data-color={color} data-underline={underline}>
+  <slot />
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>('.data-attr-cssom').forEach(element => {
+    const da = element.dataset;
+    if (da.color) element.style.setProperty('--color', da.color);
+    if (da.underline) element.style.setProperty('--text-decoration', da.underline);
+  });
+</script>
+
+<style>
+  .data-attr-cssom {
+    color: var(--color);
+    text-decoration: var(--text-decoration);
+  }
+</style>

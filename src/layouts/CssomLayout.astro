@@ -1,0 +1,61 @@
+---
+Astro.csp.insertDirective("default-src 'self'");
+(Astro as any).csp.insertDirective("style-src-attr 'none'");
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astro</title>
+</head>
+<body>
+    <slot />
+</body>
+</html>
+
+<style>
+    :root {
+        --bg-color: #fafafa;
+        --text-color: #333;
+        --primary-color: #007bff;
+        --secondary-color: #6c757d;
+        --accent-color: #ffc107;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        :root {
+            --bg-color: #333;
+            --text-color: #fafafa;
+            --primary-color: #007bff;
+            --secondary-color: #6c757d;
+            --accent-color: #ffc107;
+        }
+    }
+
+    body {
+        background-color: var(--bg-color);
+        color: var(--text-color);
+        font-family: sans-serif;
+        margin: 0;
+        padding: 2rem;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        color: var(--primary-color);
+    }
+
+    p {
+        line-height: 1.6;
+    }
+
+    a {
+        color: var(--accent-color);
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+

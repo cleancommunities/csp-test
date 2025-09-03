@@ -1,0 +1,22 @@
+---
+import CssomLayout from '../layouts/CssomLayout.astro';
+import DataAttrCssom from '../components/DataAttrCssom.astro';
+---
+
+<CssomLayout>
+
+  <a href="/">...back</a>
+
+  <h1>CSSOM Layout</h1>
+  
+  <p style="color: red; text-decoration: underline;">Not red or underlined. Inline style attributes blocked by policy, ("style-src-attr 'none'")</p>
+
+  <DataAttrCssom color="blue" underline="none">
+    <p>Text is blue with no underline. Client script sets (--var) on the element's CSSStyleDeclaration, via element.style.setProperty().</p>
+  </DataAttrCssom>
+
+  <DataAttrCssom color="green" underline="underline">
+    <p>This text should be green and underlined.... ⬆</p>
+  </DataAttrCssom>
+
+</CssomLayout>
